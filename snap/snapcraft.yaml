@@ -11,7 +11,7 @@ confinement: strict
 apps:
   virtualjaguar-jz:
     command: desktop-launch virtualjaguar
-    plugs: [home, desktop, desktop-legacy, x11, opengl, pulseaudio, joystick]
+    plugs: [home, desktop, desktop-legacy, x11, opengl, pulseaudio, joystick, raw-usb]
 
 parts:
   vjag:
