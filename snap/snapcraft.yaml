@@ -1,0 +1,43 @@
+name: virtualjaguar-jz
+version: '2.0.2-0'
+summary: Atari Jaguar emulator
+description: |
+  Virtual Jaguar GCC/Qt portable Jaguar emulator which is based on the source
+  code released by David Raingeard (Cal2) of what used to be Potato Emulation
+
+grade: stable
+confinement: strict
+
+apps:
+  virtualjaguar-jz:
+    command: desktop-launch virtualjaguar
+    plugs: [home, desktop, desktop-legacy, x11, opengl, pulseaudio, joystick]
+
+parts:
+  vjag:
+    source: https://icculus.org/virtualjaguar/tarballs/virtualjaguar-2.1.2.tar.bz2
+    plugin: make
+    artifacts:
+        - virtualjaguar
+    organize:
+      virtualjaguar: bin/
+    after: [desktop-qt4]
+    build-packages:
+      - libsdl1.2-dev
+      - qt4-dev-tools
+      - libcdio-dev
+    install: |
+      echo Stripping
+      strip $SNAPCRAFT_PART_INSTALL/bin/* 2>/dev/null || /bin/true
+
+  desktop-qt4:
+    prime:
+      - -usr/include
+      - -usr/share/apport
+      - -usr/share/doc
+      - -usr/share/doc-base
+      - -usr/share/libthai
+      - -usr/share/lintian
+      - -usr/share/man
+      - -usr/share/pkgconfig
+      - -var
