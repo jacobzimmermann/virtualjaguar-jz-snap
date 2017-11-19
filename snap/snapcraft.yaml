@@ -1,5 +1,5 @@
 name: virtualjaguar-jz
-version: '2.0.2-0'
+version: '2.1.2-0'
 summary: Atari Jaguar emulator
 description: |
   Virtual Jaguar GCC/Qt portable Jaguar emulator which is based on the source
