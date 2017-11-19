@@ -11,7 +11,7 @@ confinement: strict
 apps:
   virtualjaguar-jz:
     command: desktop-launch virtualjaguar
-    plugs: [home, desktop, desktop-legacy, x11, opengl, pulseaudio, joystick, raw-usb]
+    plugs: [home, desktop, desktop-legacy, x11, opengl, pulseaudio, joystick]
 
 parts:
   vjag:
@@ -25,6 +25,7 @@ parts:
     build-packages:
       - libsdl1.2-dev
       - qt4-dev-tools
+      - libqt4-opengl-dev
       - libcdio-dev
     install: |
       echo Stripping
